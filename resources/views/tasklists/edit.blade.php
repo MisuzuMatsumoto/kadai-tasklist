@@ -3,11 +3,11 @@
 @section('content')
 
 <!-- ここにページ毎のコンテンツを書く -->
-    <h1>id: {{ $message->id }} のメッセージ編集ページ</h1>
+    <h1>id: {{ $tasklist->id }} のタスク編集ページ</h1>
     
-        {!! Form::model($message, ['route' => ['messages.update', $message->id], 'method' => 'put']) !!}
+        {!! Form::model($tasklist, ['route' => ['tasklists.update', $tasklist->id], 'method' => 'put']) !!}
     
-            {!! Form::label('content', 'メッセージ:') !!}
+            {!! Form::label('content', 'タスク:') !!}
             {!! Form::text('content') !!}
     
             {!! Form::submit('更新') !!}
