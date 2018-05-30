@@ -14,9 +14,10 @@ class AddStatusToTasklistsTable extends Migration
     public function up()
     {
         Schema::table('tasklists', function (Blueprint $table) {
-            $table->string('status', 10)->change();
+            $table->string('status', 10);
         });
     }
+
 
     /**
      * Reverse the migrations.

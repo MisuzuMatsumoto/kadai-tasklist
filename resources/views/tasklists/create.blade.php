@@ -5,20 +5,20 @@
 <!-- ここにページ毎のコンテンツを書く -->
     <h1>タスク新規入力ページ</h1>
     
+    <!--<div class="row">-->
+    <!--        <div class="col-xs-6">-->
+    <!--上は本来あったほう、下はやってみたほう-->
+    
     <div class="row">
-            <div class="col-xs-6">
+    <div class="col-xs-12　col-sm-offset-2 col-sm-8　col-md-offset-2 col-md-8　col-lg-offset-3 col-lg-6">
+    
         
                 {!! Form::model($tasklist, ['route' => 'tasklists.store']) !!}
             
                 <div class="form-group">
                     {!! Form::label('content', 'タスク名:') !!}
                     {!! Form::text('content', null, ['class' => 'form-control']) !!}
-                    <div class="row">
-                        <div class="col-xs-12"></div>
-                        <div class="col-sm-offset-2 col-sm-8"></div>
-                        <div class="col-md-offset-2 col-md-8"></div>
-                        <div class="col-lg-offset-3 col-lg-6"></div>
-                    </div>
+                   
                 </div>
                
                 <div class="form-group">
