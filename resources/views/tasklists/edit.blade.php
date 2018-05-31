@@ -5,13 +5,7 @@
 <!-- ここにページ毎のコンテンツを書く -->
     <h1>id: {{ $tasklist->id }} のタスク編集ページ</h1>
     
-        <!--<div class="row">-->
-        <!--    <div class="col-xs-6">-->
-        <!--上は本来あったほう、下はやってみたほう-->
-        
-        <div class="row">
-        <div class="col-xs-12　col-sm-offset-2 col-sm-8　col-md-offset-2 col-md-8　col-lg-offset-3 col-lg-6">
-        
+      
                 {!! Form::model($tasklist, ['route' => ['tasklists.update', $tasklist->id], 'method' => 'put']) !!}
                 <div class="form-group">
                     {!! Form::label('content', 'タスク名:') !!}
