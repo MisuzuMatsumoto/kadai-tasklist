@@ -15,8 +15,13 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasklists', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('content');    // content カラム追加
-            $table->timestamps();
+            $table->integer('user_id')->unsigned()->index();
+            $table->string('content'); 
+            $table->string('status' , 10);
+            $table->timestamps(); 
+             //外部キーを追加
+            $table->foreign('user_id')->references('id')->on('users'); 
+            // ($table->foreign(外部キーを設定するカラム名)->references(制約先のID名)->on(外部キー制約先のテーブル名);)
         });
     }
 
@@ -28,5 +33,8 @@ class CreateTasksTable extends Migration
     public function down()
     {
         Schema::dropIfExists('tasklists');
+        Schema::table('tasklists', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 }

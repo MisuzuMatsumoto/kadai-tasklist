@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <h1>タスクリスト(一覧表示)</h1>
     
     @if (count($tasklists) > 0)
@@ -20,7 +19,7 @@
                         <td>{{ $tasklist->content }}</td>
                         <td>{{ $tasklist->status }}</td>
                     </tr>
-                @endforeach
+            @endforeach
             </tbody>
         </table>
     @endif
