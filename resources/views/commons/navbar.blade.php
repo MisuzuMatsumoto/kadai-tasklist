@@ -23,9 +23,8 @@
                             </ul>
                         </li>
                     @else
-                    
-                    <li>{!! link_to_route('signup.get', 'Signup') !!}</li>
-                    <li>{!! link_to_route('login', 'Login') !!}</li>
+                        <li>{!! link_to_route('signup.get', 'Signup') !!}</li>
+                        <li>{!! link_to_route('login', 'Login') !!}</li>
                     @endif
                 </ul>
             </div>
