@@ -19,5 +19,6 @@
             {!! link_to_route('login', 'Log in', null, ['class' => 'btn btn-lg btn-primary']) !!}
         </div>
     </div>
+    
     @endif
 @endsection
