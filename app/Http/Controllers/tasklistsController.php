@@ -11,15 +11,6 @@ use App\Tasklist;    // 追加
 class TasklistsController extends Controller
 
 {
-    // public function index()
-    // {
-    //      $tasklists = Tasklist::all();
-
-    //     return view('tasklists.index', [
-    //         'tasklists' => $tasklists,
-    //     ]);
-    // }
-    
     public function index()
     {
         $data = [];
@@ -31,20 +22,24 @@ class TasklistsController extends Controller
                 'user' => $user,
                 'tasklists' => $tasklists,
             ];
-            // $data += $this->counts($user);
             return view('tasklists.index', $data);
         }else {
             return view('welcome');
         }
     }
-
     
     public function create()
     {
+        if (\Auth::check()) {
+            $user = \Auth::user();
         $tasklist = new Tasklist;
         return view('tasklists.create', [
             'tasklist' => $tasklist,
             ]);
+            
+        }else {
+            return view('welcome');
+        }
     }
 
     public function store(Request $request)
@@ -59,34 +54,39 @@ class TasklistsController extends Controller
             'content' => $request->content,
             'status' => $request->status,
         ]);
-        
-
-        // $tasklist = new Tasklist;
-        // $tasklist->status = $request->status;
-        // $tasklist->content = $request->content;
-        // $tasklist->save();
-
-        return redirect('/');
+            return redirect('/');
     }
     
     
     public function show($id)
     {
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            
         $tasklist = Tasklist::find($id);
         
         return view('tasklists.show', [
             'tasklist' => $tasklist,
         ]);
+            
+        }else {
+            return view('welcome');
+        }
        
     }
     
     public function edit($id)
     {
-        $tasklist = Tasklist::find($id);
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $tasklist = Tasklist::find($id);
         
         return view('tasklists.edit',[
             'tasklist' => $tasklist,
             ]);
+        }else {
+            return view('welcome');
+        }   
     }
 
     public function update(Request $request, $id)
